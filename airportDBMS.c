@@ -1,93 +1,98 @@
+// C program for the airport
+// Management System
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-struct plane
-{
-  char planename[30];
-  char pilotname[30];
-  int planeno;
-  float price;
+// Create Structure of airport
+struct airport{
+	char plane_name[20];
+	char plane_no[20];
+	int seats;
+	float price;
 };
 
+// Driver Code
 int main()
 {
-  struct plane l[100];
-  char carriername[30], planeNm[30];
-  int i, j, keepcount;
-  i = j = keepcount = 0;
+	// Create a instance
+	struct airport a[100];
 
-  while (j != 6)
-  {
-     printf("\n===============Airpot Management System===============\n");
-    printf("\n\n1. Add book information\n2. Display book information\n");
-    printf("3. List all plane\n");
-    printf("4. List the plane name\n");
-    printf("5. List the list no of plane\n");
-    printf("6. Exit");
+	char pl_name[30], pl_no[30];
 
-    printf("\n\nEnter one of the above : ");
-    scanf("%d", &j);
+	// Keep the track of the number of
+	// of plane available in the airport
+	int i, input, count;
 
-    switch (j)
-    {
-    /* Add book */
-    case 1:
+	i = input = count = 0;
 
-      printf("Enter plane name = ");
-      scanf("%s", l[i].planename);
+	// Iterate the loop
+	while (input != 5) {
 
-      printf("Enter pilot name = ");
-      scanf("%s", l[i].pilotname);
+		printf("\n\n********###### WELCOME TO AIRPORT MANAGEMENT SYSTEM #####********\n");
+		printf("\n\n1. Add book information\n2. Display plane information\n");
+		printf("3. List all plane\n");
+		printf("4. List the count of plane in the airport\n");
+		printf("5. Exit");
 
-      printf("Enter plane no = ");
-      scanf("%d", &l[i].planeno);
+		// Enter the plane details
+		printf("\n\nEnter one of "
+			"the above: ");
+		scanf("%d", &input);
 
-      printf("Enter price = ");
-      scanf("%f", &l[i].price);
-      keepcount++;
+		// Process the input
+		switch (input) {
 
-      break;
-    case 2:
-      printf("you have entered the following information\n");
-      for (i = 0; i < keepcount; i++)
-      {
-        printf("Plane name = %s", l[i].planename);
+		// Add plane info
+		case 1:
 
-        printf("\t Pilot name = %s", l[i].pilotname);
+			printf("Enter plane name = ");
+			scanf("%s", a[i].plane_name);
 
-        printf("\t  Plane no = %d", l[i].planeno);
+			printf("Enter a plane no = ");
+			scanf("%s", a[i].plane_no);
 
-        printf("\t  price = %f", l[i].price);
-      }
-      break;
+			printf("Enter seats = ");
+			scanf("%d", &a[i].seats);
 
-    case 3:
-      printf("Enter carrier name : ");
-      scanf("%s", carriername);
-      for (i = 0; i < keepcount; i++)
-      {
-        if (strcmp(carriername, l[i].pilotname) == 0)
-          printf("%s %s %d %f", l[i].planename, l[i].pilotname, l[i].planeno, l[i].price);
-      }
-      break;
+			printf("Enter price = ");
+			scanf("%f", &a[i].price);
+			count++;
 
-    case 4:
-      printf("Enter plane name : ");
-      scanf("%s", planeNm);
-      for (i = 0; i < keepcount; i++)
-      {
-        if (strcmp(planeNm, l[i].planename) == 0)
-          printf("%s \t %s \t %d \t %f", l[i].planename, l[i].pilotname, l[i].planeno, l[i].price);
-      }
-      break;
+			break;
 
-    case 5:
-      printf("\n No of plane in database : %d", keepcount);
-      break;
-    case 6:
-      exit(0);
-    }
-  }
-  return 0;
+		// Print plane information
+		case 2:
+			printf("you have entered the following information\n");
+			for (i = 0; i < count; i++) {
+
+				printf("Plane name = %s",a[i].plane_name);
+
+				printf("\tPlane no = %s",a[i].plane_no);
+
+				printf("\t Seats = %d",a[i].seats);
+
+				printf("\t price = %f",a[i].price);
+			}
+			break;
+
+		// Take the plane name as input
+		case 3:
+    printf("Enter plane name : ");
+    scanf("%s", pl_name);
+			for (i = 0; i < count; i++) {
+        if (strcmp(pl_name,a[i].plane_name)== 0)
+					printf("%s %s %d %f",a[i].plane_name,a[i].plane_no,a[i].seats,a[i].price);
+			}
+			break;
+
+		// Print total count
+		case 4:
+			printf("\n No of plane in airport : %d",count);
+			break;
+		case 5:
+			exit(0);
+		}
+	}
+	return 0;
 }
