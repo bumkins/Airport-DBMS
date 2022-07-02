@@ -30,7 +30,7 @@ int main()
 	while (input != 5) {
 
 		printf("\n\n********###### WELCOME TO AIRPORT MANAGEMENT SYSTEM #####********\n");
-		printf("\n\n1. Add book information\n2. Display plane information\n");
+		printf("\n\n1. Add plane information\n2. Display plane information\n");
 		printf("3. List all plane\n");
 		printf("4. List the count of plane in the airport\n");
 		printf("5. Exit");
